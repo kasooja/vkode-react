@@ -1,0 +1,11 @@
+out
+dist
+node_modules
+build
+.vscode-test/
+*.vsix
+.env
+*.log
+.vscode
+.yarn
+*.lock

@@ -1,0 +1,126 @@
+{
+  "name": "entailmate",
+  "displayName": "EntailMate (Beta)",
+  "description": "Your AI Teammate",
+  "publisher": "EntailmentAI",
+  "version": "0.1.4",
+  "icon": "media/entail.png",
+  "engines": {
+    "vscode": "^1.23.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/entailment/entailmate.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage"
+  ],
+  "contributes": {
+    "filesystem": [
+      "file"
+    ],
+    "configuration": {
+      "title": "EntailmateAI",
+      "properties": {
+        "propelauth.clientId": {
+          "type": "string",
+          "default": "",
+          "description": "Client id"
+        },
+        "propelauth.clientSecret": {
+          "type": "string",
+          "default": "",
+          "description": "Client id"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "webview",
+          "title": "EntailMate",
+          "icon": "./media/entail.svg"
+        }
+      ]
+    },
+    "views": {
+      "webview": [
+        {
+          "type": "webview",
+          "id": "left-panel-webview",
+          "name": "EntailMate",
+          "icon": "media/entail.svg"
+        }
+      ]
+    }
+  },
+  "main": "./build/ext-src/extension.js",
+  "dependencies": {
+    "@chakra-ui/react": "^2.8.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@types/vscode": "^1.81.0",
+    "autosize": "^6.0.1",
+    "axios": "^1.4.0",
+    "chakra-react-select": "^4.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "form-data": "^4.0.0",
+    "framer-motion": "^10.15.1",
+    "http": "^0.0.1-security",
+    "prism-react-renderer": "^2.0.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
+    "react-markdown": "^8.0.7",
+    "react-syntax-highlighter": "^15.5.0",
+    "remark-gfm": "^3.0.1",
+    "remark-math": "^5.1.1",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2",
+    "yarn": "^1.22.19"
+  },
+  "resolutions": {
+    "terser": "3.14.1"
+  },
+  "scripts": {
+    "vscode:prepublish": "./scripts/build-non-split.js && tsc -p tsconfig.extension.json",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "start": "react-scripts start",
+    "build": "./scripts/build-non-split.js && tsc -p tsconfig.extension.json",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "watch-build": "nodemon --watch src --ext js,tsx,ts --exec \"yarn run build\"",
+    "compile": "webpack --mode production"
+  },
+  "devDependencies": {
+    "@types/autosize": "^4.0.1",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.4.9",
+    "@types/react": "^18.2.19",
+    "@types/react-dom": "^18.2.7",
+    "@types/react-syntax-highlighter": "^15.5.7",
+    "node": "^20.5.0",
+    "nodemon": "^3.0.1",
+    "react-scripts": "^5.0.1",
+    "rewire": "^6.0.0",
+    "terser": "5.19",
+    "ts-loader": "^9.4.4",
+    "typescript": "4.9.5",
+    "vscode": "^1.1.37",
+    "webpack-cli": "^5.1.4"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
